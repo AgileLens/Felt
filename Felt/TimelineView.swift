@@ -1,6 +1,9 @@
 import SwiftUI
 import SwiftData
 import Charts
+#if os(iOS)
+import UIKit
+#endif
 
 struct TimelineView: View {
     @Query(sort: \DayEntry.date, order: .reverse) private var entries: [DayEntry]
@@ -63,6 +66,9 @@ struct TimelineView: View {
                 HStack(spacing: 12) {
                     Button {
                         showCalendar = true
+                        #if os(iOS)
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        #endif
                     } label: {
                         Image(systemName: "calendar")
                     }
@@ -70,6 +76,9 @@ struct TimelineView: View {
                     if todayEntry == nil {
                         Button {
                             showCheckIn = true
+                            #if os(iOS)
+                            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                            #endif
                         } label: {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundStyle(FeltTheme.accent)
@@ -140,6 +149,9 @@ struct TimelineView: View {
             } else {
                 Button {
                     showCheckIn = true
+                    #if os(iOS)
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                    #endif
                 } label: {
                     HStack(spacing: 12) {
                         Image(systemName: "plus.circle.fill")
@@ -243,6 +255,9 @@ struct TimelineView: View {
             ForEach(entries.prefix(10)) { entry in
                 Button {
                     selectedEntry = entry
+                    #if os(iOS)
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    #endif
                 } label: {
                     HStack(spacing: 12) {
                         Text(entry.mood.emoji)
@@ -422,6 +437,9 @@ struct EntryDetailView: View {
             }
             .confirmationDialog("Delete this entry?", isPresented: $showDeleteConfirm, titleVisibility: .visible) {
                 Button("Delete", role: .destructive) {
+                    #if os(iOS)
+                    UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                    #endif
                     modelContext.delete(entry)
                     try? modelContext.save()
                     dismiss()
@@ -439,6 +457,9 @@ struct EntryDetailView: View {
                     withAnimation(.spring(response: 0.3)) {
                         editMood = mood
                     }
+                    #if os(iOS)
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    #endif
                 } label: {
                     Text(mood.emoji)
                         .font(.system(size: 32))
@@ -469,6 +490,9 @@ struct EntryDetailView: View {
         entry.note = editNote
         entry.gratitude = editGratitude
         try? modelContext.save()
+        #if os(iOS)
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        #endif
         withAnimation { isEditing = false }
     }
 }

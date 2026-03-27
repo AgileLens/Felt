@@ -1,5 +1,8 @@
 import SwiftUI
 import SwiftData
+#if os(iOS)
+import UIKit
+#endif
 
 struct CalendarView: View {
     @Query(sort: \DayEntry.date, order: .reverse) private var entries: [DayEntry]
@@ -9,6 +12,12 @@ struct CalendarView: View {
 
     private let calendar = Calendar.current
     private let weekdaySymbols = Calendar.current.shortWeekdaySymbols
+
+    private static let dayKeyFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "yyyy-MM-dd"
+        return f
+    }()
 
     private var monthEntries: [String: DayEntry] {
         var map: [String: DayEntry] = [:]
@@ -49,6 +58,9 @@ struct CalendarView: View {
                 HStack {
                     Button {
                         withAnimation { shiftMonth(by: -1) }
+                        #if os(iOS)
+                        UISelectionFeedbackGenerator().selectionChanged()
+                        #endif
                     } label: {
                         Image(systemName: "chevron.left")
                             .font(.body.weight(.semibold))
@@ -64,6 +76,9 @@ struct CalendarView: View {
 
                     Button {
                         withAnimation { shiftMonth(by: 1) }
+                        #if os(iOS)
+                        UISelectionFeedbackGenerator().selectionChanged()
+                        #endif
                     } label: {
                         Image(systemName: "chevron.right")
                     }
@@ -118,18 +133,19 @@ struct CalendarView: View {
     // MARK: - Day Cell
 
     private func dayCell(for date: Date) -> some View {
-        let dayKey = {
-            let f = DateFormatter()
-            f.dateFormat = "yyyy-MM-dd"
-            return f.string(from: date)
-        }()
+        let dayKey = Self.dayKeyFormatter.string(from: date)
 
         let entry = monthEntries[dayKey]
         let isToday = calendar.isDateInToday(date)
-        let isFuture = date > .now
+        let isFuture = calendar.compare(date, to: .now, toGranularity: .day) == .orderedDescending
 
         return Button {
-            if let entry { selectedEntry = entry }
+            if let entry {
+                selectedEntry = entry
+                #if os(iOS)
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                #endif
+            }
         } label: {
             VStack(spacing: 2) {
                 Text("\(calendar.component(.day, from: date))")

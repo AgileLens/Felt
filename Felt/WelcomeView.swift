@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(iOS)
+import UIKit
+#endif
 
 struct WelcomeView: View {
     var onBegin: () -> Void
@@ -43,6 +46,9 @@ struct WelcomeView: View {
                     .opacity(appear ? 1 : 0)
 
                 Button {
+                    #if os(iOS)
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                    #endif
                     onBegin()
                 } label: {
                     Text("Begin")

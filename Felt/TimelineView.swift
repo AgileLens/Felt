@@ -278,8 +278,14 @@ struct TimelineView: View {
 // MARK: - Entry Detail
 
 struct EntryDetailView: View {
-    let entry: DayEntry
+    @Bindable var entry: DayEntry
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
+    @State private var isEditing = false
+    @State private var editMood: Mood?
+    @State private var editNote = ""
+    @State private var editGratitude = ""
+    @State private var showDeleteConfirm = false
 
     var body: some View {
         NavigationStack {
@@ -287,12 +293,16 @@ struct EntryDetailView: View {
                 VStack(spacing: 24) {
                     // Mood hero
                     VStack(spacing: 12) {
-                        Text(entry.mood.emoji)
-                            .font(.system(size: 64))
+                        if isEditing {
+                            moodEditGrid
+                        } else {
+                            Text(entry.mood.emoji)
+                                .font(.system(size: 64))
+                        }
 
-                        Text(entry.mood.label)
+                        Text((isEditing ? editMood ?? entry.mood : entry.mood).label)
                             .font(.system(.title, design: .serif, weight: .bold))
-                            .foregroundStyle(entry.mood.color)
+                            .foregroundStyle((isEditing ? editMood ?? entry.mood : entry.mood).color)
 
                         Text(entry.date.formatted(.dateTime.weekday(.wide).month(.wide).day().year()))
                             .font(.subheadline)
@@ -300,32 +310,84 @@ struct EntryDetailView: View {
                     }
                     .padding(.top, 20)
 
-                    if !entry.note.isEmpty {
+                    if isEditing {
+                        // Editable fields
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Thoughts")
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(.secondary)
-                            Text(entry.note)
-                                .font(.body)
+                            TextField("What was on your mind?", text: $editNote, axis: .vertical)
+                                .lineLimit(3...6)
+                                .padding(12)
+                                .background(FeltTheme.cardBackground)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(16)
-                        .feltCard()
                         .padding(.horizontal)
-                    }
 
-                    if !entry.gratitude.isEmpty {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Grateful for")
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(.secondary)
-                            Text(entry.gratitude)
-                                .font(.body)
+                            TextField("Optional...", text: $editGratitude, axis: .vertical)
+                                .lineLimit(2...4)
+                                .padding(12)
+                                .background(FeltTheme.cardBackground)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(16)
-                        .feltCard()
                         .padding(.horizontal)
+
+                        Button {
+                            saveEdits()
+                        } label: {
+                            Text("Save Changes")
+                                .font(.headline)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 14)
+                                .background((editMood ?? entry.mood).color)
+                                .foregroundStyle(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                        .padding(.horizontal)
+                    } else {
+                        if !entry.note.isEmpty {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Thoughts")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(.secondary)
+                                Text(entry.note)
+                                    .font(.body)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(16)
+                            .feltCard()
+                            .padding(.horizontal)
+                        }
+
+                        if !entry.gratitude.isEmpty {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Grateful for")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(.secondary)
+                                Text(entry.gratitude)
+                                    .font(.body)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(16)
+                            .feltCard()
+                            .padding(.horizontal)
+                        }
+                    }
+
+                    // Delete button
+                    if !isEditing {
+                        Button(role: .destructive) {
+                            showDeleteConfirm = true
+                        } label: {
+                            Label("Delete Entry", systemImage: "trash")
+                                .font(.subheadline)
+                                .foregroundStyle(.red)
+                        }
+                        .padding(.top, 20)
                     }
 
                     Spacer()
@@ -333,10 +395,80 @@ struct EntryDetailView: View {
             }
             .background(FeltTheme.background)
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    if isEditing {
+                        Button("Cancel") {
+                            isEditing = false
+                        }
+                    }
+                }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    if !isEditing {
+                        Menu {
+                            Button {
+                                editMood = entry.mood
+                                editNote = entry.note
+                                editGratitude = entry.gratitude
+                                isEditing = true
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            Button("Done") { dismiss() }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                        }
+                    }
+                }
+            }
+            .confirmationDialog("Delete this entry?", isPresented: $showDeleteConfirm, titleVisibility: .visible) {
+                Button("Delete", role: .destructive) {
+                    modelContext.delete(entry)
+                    try? modelContext.save()
+                    dismiss()
                 }
             }
         }
+    }
+
+    // MARK: - Mood Edit Grid
+
+    private var moodEditGrid: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 8) {
+            ForEach(Mood.allCases) { mood in
+                Button {
+                    withAnimation(.spring(response: 0.3)) {
+                        editMood = mood
+                    }
+                } label: {
+                    Text(mood.emoji)
+                        .font(.system(size: 32))
+                        .scaleEffect(editMood == mood ? 1.2 : 1.0)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(editMood == mood ? mood.color.opacity(0.15) : .clear)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(editMood == mood ? mood.color : .clear, lineWidth: 2)
+                        )
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(.horizontal)
+    }
+
+    // MARK: - Save Edits
+
+    private func saveEdits() {
+        if let mood = editMood {
+            entry.mood = mood
+        }
+        entry.note = editNote
+        entry.gratitude = editGratitude
+        try? modelContext.save()
+        withAnimation { isEditing = false }
     }
 }

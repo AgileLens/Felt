@@ -15,9 +15,20 @@ struct TimelineView: View {
     private var streak: Int {
         var count = 0
         let cal = Calendar.current
-        var checkDate = Date.now
+        // Start from today; if no entry today, try yesterday (streak still counts)
+        var checkDate = cal.startOfDay(for: .now)
 
-        for entry in entries {
+        // Deduplicate by day
+        var seen = Set<String>()
+        let unique = entries.filter { seen.insert($0.dayKey).inserted }
+
+        // Allow starting from yesterday if no entry today
+        if !unique.contains(where: { cal.isDate($0.date, inSameDayAs: checkDate) }) {
+            guard let yesterday = cal.date(byAdding: .day, value: -1, to: checkDate) else { return 0 }
+            checkDate = yesterday
+        }
+
+        for entry in unique {
             if cal.isDate(entry.date, inSameDayAs: checkDate) {
                 count += 1
                 guard let prev = cal.date(byAdding: .day, value: -1, to: checkDate) else { break }
@@ -31,7 +42,7 @@ struct TimelineView: View {
 
     private var last7Days: [DayEntry] {
         let cal = Calendar.current
-        guard let weekAgo = cal.date(byAdding: .day, value: -7, to: .now) else { return [] }
+        guard let weekAgo = cal.date(byAdding: .day, value: -6, to: cal.startOfDay(for: .now)) else { return [] }
         return entries.filter { $0.date >= weekAgo }.reversed()
     }
 

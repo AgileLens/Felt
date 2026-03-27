@@ -14,10 +14,14 @@ final class DayEntry {
         set { moodRaw = newValue.rawValue }
     }
 
-    var dayKey: String {
+    private static let dayKeyFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "yyyy-MM-dd"
-        return f.string(from: date)
+        return f
+    }()
+
+    var dayKey: String {
+        DayEntry.dayKeyFormatter.string(from: date)
     }
 
     var isToday: Bool {

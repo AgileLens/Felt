@@ -8,7 +8,6 @@ enum SampleEntries {
 
         let samples: [(Int, Mood, String, String)] = [
             // (daysAgo, mood, note, gratitude)
-            (0, .good, "Productive day at work. Feeling accomplished.", "Good coffee this morning"),
             (1, .happy, "Great dinner with friends. Laughed a lot.", "Friends who show up"),
             (2, .okay, "Quiet day. Nothing special but nothing bad.", "A warm bed"),
             (3, .radiant, "Got the promotion! Can't believe it!", "My team believing in me"),

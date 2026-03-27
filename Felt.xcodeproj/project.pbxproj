@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00B04186844F28B0CB041DCA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FBFAEAF53545095AF770C /* WelcomeView.swift */; };
+		19B8C10CA026CF522BAFB83B /* DayEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69CFC355609AEB4D2620F6 /* DayEntry.swift */; };
+		224CEF5F947039409040A7DF /* DayEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69CFC355609AEB4D2620F6 /* DayEntry.swift */; };
+		2AB531698E9C531CB8BB0326 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767E222FFEFBA18D553D5DC /* CalendarView.swift */; };
+		2D26D9D08A8E02F6EE55160F /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F413CF0A3C5EBDA66E52182 /* TimelineView.swift */; };
+		36F2513F6ED36174F12BEFE9 /* SampleEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D911B55DAAB3BEBE4337B9 /* SampleEntries.swift */; };
+		3DC4B92E09E8347D52DE55DA /* FeltApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94774DD906A11EE950FF809C /* FeltApp.swift */; };
+		4A7D27D271617447A9427133 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F413CF0A3C5EBDA66E52182 /* TimelineView.swift */; };
+		4ABA7CD6B1B297BD9EBCED3C /* SampleEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D911B55DAAB3BEBE4337B9 /* SampleEntries.swift */; };
+		4B4C07800AF2848AFF883A6E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767E222FFEFBA18D553D5DC /* CalendarView.swift */; };
+		4FF65264C3AE4540C27FCBC9 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0A5B6FA9383C767CE10754 /* Mood.swift */; };
+		51158878CCAA70F5F8CA1A26 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4767E222FFEFBA18D553D5DC /* CalendarView.swift */; };
+		517A145FC57CAA35BB4B8123 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0A5B6FA9383C767CE10754 /* Mood.swift */; };
+		591AB1AD5C596E8414B1AE22 /* SampleEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D911B55DAAB3BEBE4337B9 /* SampleEntries.swift */; };
+		5CDE126D1784AB948BF0C998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C524D7C962FA6D09D69C9EC0 /* Assets.xcassets */; };
+		5D33A19AB7865DF795F64881 /* FeltTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80A4472ACC1BFFCDC6FF30 /* FeltTheme.swift */; };
+		696061951724D9F182EE9333 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F413CF0A3C5EBDA66E52182 /* TimelineView.swift */; };
+		94D387991B483FB029C96482 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AEC6FAAE3DA26C2EFF4A20 /* CheckInView.swift */; };
+		A14E69C7EB85812E4C4C7CE1 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AEC6FAAE3DA26C2EFF4A20 /* CheckInView.swift */; };
+		BE61C829FEC9B814BFDF0C13 /* FeltApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94774DD906A11EE950FF809C /* FeltApp.swift */; };
+		C5747B424DBD33ACC5214158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C524D7C962FA6D09D69C9EC0 /* Assets.xcassets */; };
+		CEBFBF9046BCB2D9B26E263E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FBFAEAF53545095AF770C /* WelcomeView.swift */; };
+		D45D1B7F6351C74A5319385E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FBFAEAF53545095AF770C /* WelcomeView.swift */; };
+		D4D8F2D9E55E434A733BC718 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AEC6FAAE3DA26C2EFF4A20 /* CheckInView.swift */; };
+		D7B219964242D390D2F9E5DC /* FeltApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94774DD906A11EE950FF809C /* FeltApp.swift */; };
+		D8C78C5191EE3B56CC032905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C524D7C962FA6D09D69C9EC0 /* Assets.xcassets */; };
+		DC10C1C554A8D698BE08F299 /* FeltTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80A4472ACC1BFFCDC6FF30 /* FeltTheme.swift */; };
+		F16E2E4C1B6805456C482629 /* DayEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69CFC355609AEB4D2620F6 /* DayEntry.swift */; };
+		F649F53F3052F5CD1F5CD6BD /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0A5B6FA9383C767CE10754 /* Mood.swift */; };
+		FDE0DDDCF7429262604FA5D9 /* FeltTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80A4472ACC1BFFCDC6FF30 /* FeltTheme.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16A368FF64246CE7E046C7CA /* Felt.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Felt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D911B55DAAB3BEBE4337B9 /* SampleEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEntries.swift; sourceTree = "<group>"; };
+		1F413CF0A3C5EBDA66E52182 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		2F80A4472ACC1BFFCDC6FF30 /* FeltTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeltTheme.swift; sourceTree = "<group>"; };
+		4767E222FFEFBA18D553D5DC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		6B69CFC355609AEB4D2620F6 /* DayEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEntry.swift; sourceTree = "<group>"; };
+		7E0A5B6FA9383C767CE10754 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		837FBFAEAF53545095AF770C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		8AFE78FDE36B66F72489DEBD /* FeltVision.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FeltVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94774DD906A11EE950FF809C /* FeltApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeltApp.swift; sourceTree = "<group>"; };
+		A04B0E0E3CD1E633637271A1 /* FeltMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeltMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9AEC6FAAE3DA26C2EFF4A20 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		C524D7C962FA6D09D69C9EC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1D0DEE323D9C21EBD241DDC9 = {
+			isa = PBXGroup;
+			children = (
+				BEC335CD294398B99CAC9CC3 /* Felt */,
+				FC9F4F2768DA93BEB8E47B28 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BEC335CD294398B99CAC9CC3 /* Felt */ = {
+			isa = PBXGroup;
+			children = (
+				C524D7C962FA6D09D69C9EC0 /* Assets.xcassets */,
+				4767E222FFEFBA18D553D5DC /* CalendarView.swift */,
+				B9AEC6FAAE3DA26C2EFF4A20 /* CheckInView.swift */,
+				6B69CFC355609AEB4D2620F6 /* DayEntry.swift */,
+				94774DD906A11EE950FF809C /* FeltApp.swift */,
+				2F80A4472ACC1BFFCDC6FF30 /* FeltTheme.swift */,
+				7E0A5B6FA9383C767CE10754 /* Mood.swift */,
+				17D911B55DAAB3BEBE4337B9 /* SampleEntries.swift */,
+				1F413CF0A3C5EBDA66E52182 /* TimelineView.swift */,
+				837FBFAEAF53545095AF770C /* WelcomeView.swift */,
+			);
+			path = Felt;
+			sourceTree = "<group>";
+		};
+		FC9F4F2768DA93BEB8E47B28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16A368FF64246CE7E046C7CA /* Felt.app */,
+				A04B0E0E3CD1E633637271A1 /* FeltMac.app */,
+				8AFE78FDE36B66F72489DEBD /* FeltVision.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		54B25B3A8D1C101590CE716B /* FeltMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C925C76AC18FCE209A451C1 /* Build configuration list for PBXNativeTarget "FeltMac" */;
+			buildPhases = (
+				E73C623FD986B1BC1BC3AFDE /* Sources */,
+				51ABA70FD085CFB08DFA37AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeltMac;
+			packageProductDependencies = (
+			);
+			productName = FeltMac;
+			productReference = A04B0E0E3CD1E633637271A1 /* FeltMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B94078F5B7710945EBAA22CF /* FeltVision */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 412B11703EFC0ACB745ACC2B /* Build configuration list for PBXNativeTarget "FeltVision" */;
+			buildPhases = (
+				7CF5AB9A6B5005D612AB856C /* Sources */,
+				71C499DFFDA1C91449B68DD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeltVision;
+			packageProductDependencies = (
+			);
+			productName = FeltVision;
+			productReference = 8AFE78FDE36B66F72489DEBD /* FeltVision.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FE00E36E0C781174B7991D58 /* Felt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5BFF9C76A7DB3718B21883E /* Build configuration list for PBXNativeTarget "Felt" */;
+			buildPhases = (
+				58267FA3F5D8227F211119CD /* Sources */,
+				56C872EE4F764087DD76CE2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Felt;
+			packageProductDependencies = (
+			);
+			productName = Felt;
+			productReference = 16A368FF64246CE7E046C7CA /* Felt.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA9522F4D80EE6583C75F121 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					54B25B3A8D1C101590CE716B = {
+						DevelopmentTeam = C624J4S2F8;
+					};
+					B94078F5B7710945EBAA22CF = {
+						DevelopmentTeam = C624J4S2F8;
+					};
+					FE00E36E0C781174B7991D58 = {
+						DevelopmentTeam = C624J4S2F8;
+					};
+				};
+			};
+			buildConfigurationList = 46EEC4CCD2865BD2E6CD3E51 /* Build configuration list for PBXProject "Felt" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1D0DEE323D9C21EBD241DDC9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FC9F4F2768DA93BEB8E47B28 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE00E36E0C781174B7991D58 /* Felt */,
+				54B25B3A8D1C101590CE716B /* FeltMac */,
+				B94078F5B7710945EBAA22CF /* FeltVision */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		51ABA70FD085CFB08DFA37AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CDE126D1784AB948BF0C998 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56C872EE4F764087DD76CE2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C78C5191EE3B56CC032905 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71C499DFFDA1C91449B68DD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5747B424DBD33ACC5214158 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58267FA3F5D8227F211119CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B4C07800AF2848AFF883A6E /* CalendarView.swift in Sources */,
+				94D387991B483FB029C96482 /* CheckInView.swift in Sources */,
+				224CEF5F947039409040A7DF /* DayEntry.swift in Sources */,
+				D7B219964242D390D2F9E5DC /* FeltApp.swift in Sources */,
+				DC10C1C554A8D698BE08F299 /* FeltTheme.swift in Sources */,
+				4FF65264C3AE4540C27FCBC9 /* Mood.swift in Sources */,
+				4ABA7CD6B1B297BD9EBCED3C /* SampleEntries.swift in Sources */,
+				696061951724D9F182EE9333 /* TimelineView.swift in Sources */,
+				CEBFBF9046BCB2D9B26E263E /* WelcomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CF5AB9A6B5005D612AB856C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AB531698E9C531CB8BB0326 /* CalendarView.swift in Sources */,
+				D4D8F2D9E55E434A733BC718 /* CheckInView.swift in Sources */,
+				19B8C10CA026CF522BAFB83B /* DayEntry.swift in Sources */,
+				3DC4B92E09E8347D52DE55DA /* FeltApp.swift in Sources */,
+				5D33A19AB7865DF795F64881 /* FeltTheme.swift in Sources */,
+				F649F53F3052F5CD1F5CD6BD /* Mood.swift in Sources */,
+				591AB1AD5C596E8414B1AE22 /* SampleEntries.swift in Sources */,
+				2D26D9D08A8E02F6EE55160F /* TimelineView.swift in Sources */,
+				00B04186844F28B0CB041DCA /* WelcomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E73C623FD986B1BC1BC3AFDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51158878CCAA70F5F8CA1A26 /* CalendarView.swift in Sources */,
+				A14E69C7EB85812E4C4C7CE1 /* CheckInView.swift in Sources */,
+				F16E2E4C1B6805456C482629 /* DayEntry.swift in Sources */,
+				BE61C829FEC9B814BFDF0C13 /* FeltApp.swift in Sources */,
+				FDE0DDDCF7429262604FA5D9 /* FeltTheme.swift in Sources */,
+				517A145FC57CAA35BB4B8123 /* Mood.swift in Sources */,
+				36F2513F6ED36174F12BEFE9 /* SampleEntries.swift in Sources */,
+				4A7D27D271617447A9427133 /* TimelineView.swift in Sources */,
+				D45D1B7F6351C74A5319385E /* WelcomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		09E392C4BB827C6F654A8742 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Felt;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = agilelens.Felt;
+				PRODUCT_NAME = Felt;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Debug;
+		};
+		248238915E36B9025F61C07D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_KEY_CFBundleDisplayName = Felt;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = agilelens.Felt;
+				PRODUCT_NAME = Felt;
+				SDKROOT = xros;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Debug;
+		};
+		33AA4F4C2A5627AC602585A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_CFBundleDisplayName = Felt;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = agilelens.Felt;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		504BE79FE308430BBB637442 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_CFBundleDisplayName = Felt;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = agilelens.Felt;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		54D2AE0C58DA7FD588777BDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = C624J4S2F8;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		69AE35254C5A35C400A6B86F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Felt;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = agilelens.Felt;
+				PRODUCT_NAME = Felt;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Release;
+		};
+		B5044C3622BA969089941769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_KEY_CFBundleDisplayName = Felt;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = agilelens.Felt;
+				PRODUCT_NAME = Felt;
+				SDKROOT = xros;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Release;
+		};
+		F8576F2685F63483ED6880F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = C624J4S2F8;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C925C76AC18FCE209A451C1 /* Build configuration list for PBXNativeTarget "FeltMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09E392C4BB827C6F654A8742 /* Debug */,
+				69AE35254C5A35C400A6B86F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		412B11703EFC0ACB745ACC2B /* Build configuration list for PBXNativeTarget "FeltVision" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				248238915E36B9025F61C07D /* Debug */,
+				B5044C3622BA969089941769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		46EEC4CCD2865BD2E6CD3E51 /* Build configuration list for PBXProject "Felt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54D2AE0C58DA7FD588777BDD /* Debug */,
+				F8576F2685F63483ED6880F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E5BFF9C76A7DB3718B21883E /* Build configuration list for PBXNativeTarget "Felt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33AA4F4C2A5627AC602585A0 /* Debug */,
+				504BE79FE308430BBB637442 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA9522F4D80EE6583C75F121 /* Project object */;
+}

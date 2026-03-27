@@ -1,0 +1,56 @@
+name: Felt
+options:
+  bundleIdPrefix: agilelens
+  deploymentTarget:
+    iOS: "18.0"
+    macOS: "15.0"
+    visionOS: "2.0"
+  generateEmptyDirectories: true
+  groupSortPosition: top
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: C624J4S2F8
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: 1
+    GENERATE_INFOPLIST_FILE: true
+
+targets:
+  Felt:
+    type: application
+    platform: iOS
+    sources:
+      - Felt
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: agilelens.Felt
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
+        INFOPLIST_KEY_UILaunchScreen_Generation: true
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait"
+        INFOPLIST_KEY_CFBundleDisplayName: "Felt"
+        SWIFT_STRICT_CONCURRENCY: complete
+
+  FeltMac:
+    type: application
+    platform: macOS
+    sources:
+      - Felt
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: agilelens.Felt
+        PRODUCT_NAME: Felt
+        INFOPLIST_KEY_CFBundleDisplayName: "Felt"
+        SWIFT_STRICT_CONCURRENCY: complete
+
+  FeltVision:
+    type: application
+    platform: visionOS
+    sources:
+      - Felt
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: agilelens.Felt
+        PRODUCT_NAME: Felt
+        INFOPLIST_KEY_CFBundleDisplayName: "Felt"
+        SWIFT_STRICT_CONCURRENCY: complete

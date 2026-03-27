@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @State private var showCheckIn = false
+    var onBegin: () -> Void
     @State private var appear = false
 
     var body: some View {
@@ -43,7 +43,7 @@ struct WelcomeView: View {
                     .opacity(appear ? 1 : 0)
 
                 Button {
-                    showCheckIn = true
+                    onBegin()
                 } label: {
                     Text("Begin")
                         .font(.headline)
@@ -60,16 +60,6 @@ struct WelcomeView: View {
             Spacer(minLength: 40)
         }
         .background(FeltTheme.background)
-        #if os(macOS)
-        .sheet(isPresented: $showCheckIn) {
-            CheckInView()
-                .frame(minWidth: 500, minHeight: 600)
-        }
-        #else
-        .fullScreenCover(isPresented: $showCheckIn) {
-            CheckInView()
-        }
-        #endif
         .onAppear {
             withAnimation(.easeOut(duration: 0.8)) {
                 appear = true

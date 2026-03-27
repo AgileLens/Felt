@@ -14,25 +14,19 @@ struct FeltApp: App {
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \DayEntry.date, order: .reverse) private var entries: [DayEntry]
-    @State private var hasSeeded = UserDefaults.standard.bool(forKey: "felt_seeded")
-
-    private var hasCheckedInToday: Bool {
-        entries.first?.isToday == true
-    }
+    @AppStorage("felt_onboarded") private var hasOnboarded = false
 
     var body: some View {
         NavigationStack {
-            if !hasSeeded && entries.isEmpty {
-                WelcomeView()
+            if !hasOnboarded {
+                WelcomeView {
+                    SampleEntries.seed(into: modelContext)
+                    withAnimation {
+                        hasOnboarded = true
+                    }
+                }
             } else {
                 TimelineView()
-            }
-        }
-        .task {
-            if !hasSeeded {
-                SampleEntries.seed(into: modelContext)
-                UserDefaults.standard.set(true, forKey: "felt_seeded")
-                hasSeeded = true
             }
         }
     }

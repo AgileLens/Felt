@@ -7,6 +7,7 @@ import UIKit
 struct CheckInView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Query(sort: \DayEntry.date, order: .reverse) private var entries: [DayEntry]
     @State private var selectedMood: Mood?
     @State private var note = ""
     @State private var gratitude = ""
@@ -166,13 +167,20 @@ struct CheckInView: View {
     // MARK: - Save
 
     private func saveEntry(mood: Mood) {
-        let entry = DayEntry(
-            date: .now,
-            mood: mood,
-            note: note,
-            gratitude: gratitude
-        )
-        modelContext.insert(entry)
+        // Update existing entry for today, or create new
+        if let existing = entries.first(where: { $0.isToday }) {
+            existing.mood = mood
+            existing.note = note
+            existing.gratitude = gratitude
+        } else {
+            let entry = DayEntry(
+                date: .now,
+                mood: mood,
+                note: note,
+                gratitude: gratitude
+            )
+            modelContext.insert(entry)
+        }
         try? modelContext.save()
 
         #if os(iOS)

@@ -171,6 +171,7 @@ struct CalendarView: View {
         }
         .buttonStyle(.plain)
         .disabled(entry == nil)
+        .accessibilityLabel("\(date.formatted(.dateTime.month(.wide).day()))\(entry != nil ? ", felt \(entry!.mood.label.lowercased())" : "")\(isToday ? ", today" : "")")
     }
 
     // MARK: - Stats

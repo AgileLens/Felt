@@ -232,6 +232,8 @@ struct TimelineView: View {
         .padding(.vertical, 12)
         .feltCard()
         .padding(.horizontal)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Weekly mood chart")
     }
 
     private func moodLabel(for value: Int) -> String {
@@ -285,6 +287,8 @@ struct TimelineView: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel("\(entry.date.formatted(.dateTime.weekday(.wide).month(.abbreviated).day())), felt \(entry.mood.label.lowercased())\(!entry.note.isEmpty ? ", \(entry.note)" : "")")
             }
         }
     }

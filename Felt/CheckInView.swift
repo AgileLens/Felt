@@ -159,6 +159,7 @@ struct CheckInView: View {
                     )
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("\(mood.label)\(selectedMood == mood ? ", selected" : "")")
             }
         }
         .padding(.horizontal)

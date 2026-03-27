@@ -55,6 +55,9 @@ struct TimelineView: View {
                 headerSection
                 todayCard
                 moodChart
+                if entries.count >= 3 {
+                    insightsSection
+                }
                 recentEntries
                 Spacer(minLength: 20)
             }
@@ -244,6 +247,70 @@ struct TimelineView: View {
         case 2: return "😢"
         default: return ""
         }
+    }
+
+    // MARK: - Insights
+
+    private var insightsSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Insights")
+                .font(.headline)
+                .padding(.horizontal)
+
+            if entries.count >= 3 {
+                let recent3 = Array(entries.prefix(3))
+                let avgRecent = recent3.reduce(0) { $0 + $1.mood.numericValue } / 3.0
+                let trend = entries.count >= 6 ? {
+                    let older3 = Array(entries[3..<min(6, entries.count)])
+                    let avgOlder = older3.reduce(0.0) { $0 + $1.mood.numericValue } / Double(older3.count)
+                    return avgRecent - avgOlder
+                }() : 0.0
+
+                HStack(spacing: 12) {
+                    if abs(trend) > 0.5 {
+                        insightCard(
+                            icon: trend > 0 ? "arrow.up.right" : "arrow.down.right",
+                            color: trend > 0 ? .green : .orange,
+                            title: trend > 0 ? "Trending Up" : "Trending Down",
+                            detail: "Your recent mood is \(trend > 0 ? "higher" : "lower") than before"
+                        )
+                    }
+
+                    if let best = entries.prefix(14).max(by: { $0.mood.numericValue < $1.mood.numericValue }) {
+                        insightCard(
+                            icon: "star.fill",
+                            color: .yellow,
+                            title: "Best Day",
+                            detail: best.date.formatted(.dateTime.weekday(.wide))
+                        )
+                    }
+                }
+                .padding(.horizontal)
+            }
+        }
+    }
+
+    private func insightCard(icon: String, color: Color, title: String, detail: String) -> some View {
+        HStack(spacing: 10) {
+            Image(systemName: icon)
+                .font(.title3)
+                .foregroundStyle(color)
+                .frame(width: 36, height: 36)
+                .background(color.opacity(0.12))
+                .clipShape(Circle())
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.caption.weight(.semibold))
+                Text(detail)
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+
+            Spacer()
+        }
+        .padding(12)
+        .feltCard()
     }
 
     // MARK: - Recent Entries

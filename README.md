@@ -57,6 +57,14 @@ xcodegen generate
 open Felt.xcodeproj
 ```
 
+## Things to Try
+
+1. **Run the app and tap a mood emoji for today** — the entry animates in and the calendar view shows today highlighted with your mood color; the whole check-in takes under 10 seconds.
+2. **Add a note and a gratitude line to today's entry** — tap the entry to expand it; both fields save automatically on dismiss, no save button needed.
+3. **Scroll back through the calendar to a past day and tap it** — your previous mood and note appear; moods are never editable after midnight so the history stays honest.
+4. **After logging a few days, open the Trends view** — a chart shows your mood distribution over the past week/month; tap a day on the chart to jump to that entry.
+5. **Check the Privacy screen in Settings** — confirm all data is stored locally in SwiftData with no network calls; there should be no mention of a server URL or analytics SDK.
+
 ## Architecture
 
 ```
